@@ -1,0 +1,146 @@
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Newtonsoft.Json;
+using OnlineQuizSystemProject.Models;
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace OnlineQuizSystemProject.Helpers
+{
+    /// <summary>
+    /// Manages all persistence via a single JSON file (data.json).
+    /// The file is stored next to the executable.
+    /// </summary>
+    public static class DataManager
+    {
+        private static readonly string DataFile =
+            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data.json");
+
+        private static AppData? _cache;
+
+        // ─── Load ─────────────────────────────────────────────────────────────────
+        public static AppData Load()
+        {
+            if (_cache != null) return _cache;
+
+            if (File.Exists(DataFile))
+            {
+                string json = File.ReadAllText(DataFile);
+                _cache = JsonConvert.DeserializeObject<AppData>(json) ?? new AppData();
+            }
+            else
+            {
+                _cache = new AppData();
+                Seed(_cache);
+                Save();
+            }
+            return _cache;
+        }
+
+        // ─── Save ─────────────────────────────────────────────────────────────────
+        public static void Save()
+        {
+            if (_cache == null) return;
+            string json = JsonConvert.SerializeObject(_cache, Formatting.Indented);
+            File.WriteAllText(DataFile, json);
+        }
+
+        // ─── Convenience wrappers ─────────────────────────────────────────────────
+        public static List<OnlineQuizSystemProject.Models.User> GetUsers() => Load().Users;
+        public static List<Quiz> GetQuizzes() => Load().Quizzes;
+        public static List<QuizResult> GetResults() => Load().Results;
+
+        public static OnlineQuizSystemProject.Models.User? Authenticate(string username, string password)
+        {
+            var users = Load().Users;
+
+            // all student accounts must use pass123
+            if (username.StartsWith("student", StringComparison.OrdinalIgnoreCase))
+            {
+                if (password != "pass123")
+                    return null;
+            }
+
+            return Load().Users.Find(u =>
+                string.Equals(u.Username, username, StringComparison.OrdinalIgnoreCase) &&
+                u.Password == password);
+        }
+
+        public static void AddQuiz(Quiz quiz)
+        {
+            Load().Quizzes.Add(quiz);
+            Save();
+        }
+
+        public static void AddResult(QuizResult result)
+        {
+            Load().Results.Add(result);
+            Save();
+        }
+
+        public static List<QuizResult> GetResultsForStudent(string username)
+        {
+            return Load().Results.FindAll(r =>
+               string.Equals(r.StudentUsername, username, StringComparison.OrdinalIgnoreCase));
+        }
+
+        // ─── Seed default data ────────────────────────────────────────────────────
+        private static void Seed(AppData data)
+        {
+            // Default users
+            data.Users.Add(new OnlineQuizSystemProject.Models.User
+            {
+                Username = "admin",
+                Password = "admin123",
+                Role = "admin",
+                FullName = "Administrator"
+            });
+            // Auto-generate students
+            for (int i = 1; i <= 100; i++)
+            {
+                data.Users.Add(new OnlineQuizSystemProject.Models.User
+                {
+                    Username = "student" + i,
+                    Password = "pass123",
+                    Role = "student",
+                    FullName = "Student " + i
+                });
+            };
+            // Sample quiz
+            data.Quizzes.Add(new Quiz
+            {
+                QuizId = Guid.NewGuid().ToString(),
+                Title = "Visual Programing",
+                CreatedBy = "admin",
+                CreatedAt = DateTime.Now,
+                Questions = new List<Question>
+                {
+                    new Question
+                    {
+                        QuestionText = "What is the use of tool box?",
+                        Options = new List<string> { "MouseHover", "KeyPress", "Click", "Load" },
+                        CorrectOptionIndex = 1
+                    },
+                    new Question
+                    {
+                        QuestionText = "Which property changes the background color of a form?",
+                        Options = new List<string> { "ForeColor", "BackColor", "BorderStyle", "Opacity" },
+                        CorrectOptionIndex = 1
+                    },
+                    new Question
+                    {
+                        QuestionText = "What does the MessageBox.Show() method do?",
+                        Options = new List<string> {"Closes the application", "Displays a popup dialog box", "Opens a new form", "Saves a file" },
+                        CorrectOptionIndex = 1
+                    },
+                     new Question
+                    {
+                        QuestionText = "Which layout container arranges controls automatically in a flow?",
+                        Options = new List<string> { "Panel", "GroupBox", "FlowLayoutPanel", "TabControl" },
+                        CorrectOptionIndex = 2
+                    }
+                }
+            });
+        }
+    }
+}

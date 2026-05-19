@@ -1,0 +1,702 @@
+{
+  "Users": [
+    {
+      "Username": "admin",
+      "Password": "admin123",
+      "Role": "admin",
+      "FullName": "Administrator"
+    },
+    {
+      "Username": "student1",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 1"
+    },
+    {
+      "Username": "student2",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 2"
+    },
+    {
+      "Username": "student3",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 3"
+    },
+    {
+      "Username": "student4",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 4"
+    },
+    {
+      "Username": "student5",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 5"
+    },
+    {
+      "Username": "student6",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 6"
+    },
+    {
+      "Username": "student7",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 7"
+    },
+    {
+      "Username": "student8",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 8"
+    },
+    {
+      "Username": "student9",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 9"
+    },
+    {
+      "Username": "student10",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 10"
+    },
+    {
+      "Username": "student11",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 11"
+    },
+    {
+      "Username": "student12",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 12"
+    },
+    {
+      "Username": "student13",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 13"
+    },
+    {
+      "Username": "student14",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 14"
+    },
+    {
+      "Username": "student15",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 15"
+    },
+    {
+      "Username": "student16",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 16"
+    },
+    {
+      "Username": "student17",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 17"
+    },
+    {
+      "Username": "student18",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 18"
+    },
+    {
+      "Username": "student19",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 19"
+    },
+    {
+      "Username": "student20",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 20"
+    },
+    {
+      "Username": "student21",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 21"
+    },
+    {
+      "Username": "student22",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 22"
+    },
+    {
+      "Username": "student23",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 23"
+    },
+    {
+      "Username": "student24",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 24"
+    },
+    {
+      "Username": "student25",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 25"
+    },
+    {
+      "Username": "student26",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 26"
+    },
+    {
+      "Username": "student27",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 27"
+    },
+    {
+      "Username": "student28",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 28"
+    },
+    {
+      "Username": "student29",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 29"
+    },
+    {
+      "Username": "student30",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 30"
+    },
+    {
+      "Username": "student31",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 31"
+    },
+    {
+      "Username": "student32",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 32"
+    },
+    {
+      "Username": "student33",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 33"
+    },
+    {
+      "Username": "student34",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 34"
+    },
+    {
+      "Username": "student35",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 35"
+    },
+    {
+      "Username": "student36",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 36"
+    },
+    {
+      "Username": "student37",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 37"
+    },
+    {
+      "Username": "student38",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 38"
+    },
+    {
+      "Username": "student39",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 39"
+    },
+    {
+      "Username": "student40",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 40"
+    },
+    {
+      "Username": "student41",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 41"
+    },
+    {
+      "Username": "student42",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 42"
+    },
+    {
+      "Username": "student43",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 43"
+    },
+    {
+      "Username": "student44",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 44"
+    },
+    {
+      "Username": "student45",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 45"
+    },
+    {
+      "Username": "student46",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 46"
+    },
+    {
+      "Username": "student47",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 47"
+    },
+    {
+      "Username": "student48",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 48"
+    },
+    {
+      "Username": "student49",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 49"
+    },
+    {
+      "Username": "student50",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 50"
+    },
+    {
+      "Username": "student51",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 51"
+    },
+    {
+      "Username": "student52",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 52"
+    },
+    {
+      "Username": "student53",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 53"
+    },
+    {
+      "Username": "student54",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 54"
+    },
+    {
+      "Username": "student55",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 55"
+    },
+    {
+      "Username": "student56",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 56"
+    },
+    {
+      "Username": "student57",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 57"
+    },
+    {
+      "Username": "student58",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 58"
+    },
+    {
+      "Username": "student59",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 59"
+    },
+    {
+      "Username": "student60",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 60"
+    },
+    {
+      "Username": "student61",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 61"
+    },
+    {
+      "Username": "student62",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 62"
+    },
+    {
+      "Username": "student63",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 63"
+    },
+    {
+      "Username": "student64",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 64"
+    },
+    {
+      "Username": "student65",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 65"
+    },
+    {
+      "Username": "student66",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 66"
+    },
+    {
+      "Username": "student67",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 67"
+    },
+    {
+      "Username": "student68",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 68"
+    },
+    {
+      "Username": "student69",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 69"
+    },
+    {
+      "Username": "student70",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 70"
+    },
+    {
+      "Username": "student71",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 71"
+    },
+    {
+      "Username": "student72",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 72"
+    },
+    {
+      "Username": "student73",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 73"
+    },
+    {
+      "Username": "student74",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 74"
+    },
+    {
+      "Username": "student75",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 75"
+    },
+    {
+      "Username": "student76",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 76"
+    },
+    {
+      "Username": "student77",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 77"
+    },
+    {
+      "Username": "student78",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 78"
+    },
+    {
+      "Username": "student79",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 79"
+    },
+    {
+      "Username": "student80",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 80"
+    },
+    {
+      "Username": "student81",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 81"
+    },
+    {
+      "Username": "student82",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 82"
+    },
+    {
+      "Username": "student83",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 83"
+    },
+    {
+      "Username": "student84",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 84"
+    },
+    {
+      "Username": "student85",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 85"
+    },
+    {
+      "Username": "student86",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 86"
+    },
+    {
+      "Username": "student87",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 87"
+    },
+    {
+      "Username": "student88",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 88"
+    },
+    {
+      "Username": "student89",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 89"
+    },
+    {
+      "Username": "student90",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 90"
+    },
+    {
+      "Username": "student91",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 91"
+    },
+    {
+      "Username": "student92",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 92"
+    },
+    {
+      "Username": "student93",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 93"
+    },
+    {
+      "Username": "student94",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 94"
+    },
+    {
+      "Username": "student95",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 95"
+    },
+    {
+      "Username": "student96",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 96"
+    },
+    {
+      "Username": "student97",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 97"
+    },
+    {
+      "Username": "student98",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 98"
+    },
+    {
+      "Username": "student99",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 99"
+    },
+    {
+      "Username": "student100",
+      "Password": "pass123",
+      "Role": "student",
+      "FullName": "Student 100"
+    }
+  ],
+  "Quizzes": [
+    {
+      "QuizId": "7a9d0921-4663-4010-a19f-5fc35155ee85",
+      "Title": "Visual Programing",
+      "CreatedBy": "admin",
+      "CreatedAt": "2026-05-19T06:21:04.8814891+05:00",
+      "Questions": [
+        {
+          "QuestionText": "What is the use of tool box?",
+          "Options": [
+            "MouseHover",
+            "KeyPress",
+            "Click",
+            "Load"
+          ],
+          "CorrectOptionIndex": 1
+        },
+        {
+          "QuestionText": "Which property changes the background color of a form?",
+          "Options": [
+            "ForeColor",
+            "BackColor",
+            "BorderStyle",
+            "Opacity"
+          ],
+          "CorrectOptionIndex": 1
+        },
+        {
+          "QuestionText": "What does the MessageBox.Show() method do?",
+          "Options": [
+            "Closes the application",
+            "Displays a popup dialog box",
+            "Opens a new form",
+            "Saves a file"
+          ],
+          "CorrectOptionIndex": 1
+        },
+        {
+          "QuestionText": "Which layout container arranges controls automatically in a flow?",
+          "Options": [
+            "Panel",
+            "GroupBox",
+            "FlowLayoutPanel",
+            "TabControl"
+          ],
+          "CorrectOptionIndex": 2
+        }
+      ]
+    },
+    {
+      "QuizId": "cf5a6e4a-d5d0-4361-a749-bc9676276e01",
+      "Title": "SST",
+      "CreatedBy": "admin",
+      "CreatedAt": "2026-05-19T11:39:37.1041585+05:00",
+      "Questions": [
+        {
+          "QuestionText": "Who is national hero of Pakistan?",
+          "Options": [
+            "Quaid",
+            "Allama Iqbal",
+            "ALi",
+            "None"
+          ],
+          "CorrectOptionIndex": 0
+        }
+      ]
+    }
+  ],
+  "Results": [
+    {
+      "ResultId": "c4f50e8e-7fd0-435e-8dd2-842c452de955",
+      "StudentUsername": "student13",
+      "StudentFullName": "Student 13",
+      "QuizId": "7a9d0921-4663-4010-a19f-5fc35155ee85",
+      "QuizTitle": "Visual Programing",
+      "TotalMarks": 4,
+      "ObtainedMarks": 3,
+      "Percentage": 75.0,
+      "SubmittedAt": "2026-05-19T06:21:15.1352803+05:00"
+    },
+    {
+      "ResultId": "71b1cd8b-b35e-4a25-b69f-c893dde69b8e",
+      "StudentUsername": "student15",
+      "StudentFullName": "Student 15",
+      "QuizId": "cf5a6e4a-d5d0-4361-a749-bc9676276e01",
+      "QuizTitle": "SST",
+      "TotalMarks": 1,
+      "ObtainedMarks": 1,
+      "Percentage": 100.0,
+      "SubmittedAt": "2026-05-19T11:40:05.8343228+05:00"
+    }
+  ]
+}
