@@ -1,30 +1,30 @@
 Online Quiz System – Deployment Guide
 
 Requirements
-Windows OS
-Visual Studio Community 2022
-.NET Framework 4.8
-Newtonsoft.Json package
+- Windows OS
+- Visual Studio Community 2022
+- .NET 10.0
+- Newtonsoft.Json (installed via NuGet automatically)
 
 How to Run
-Open the .sln file in Visual Studio.
-Restore NuGet packages if prompted.
-Build the solution.
-Press F5 to run the project.
-
-Required Packages
-Newtonsoft.Json
+1. Open OnlineQuizSystemProject.slnx in Visual Studio
+2. Restore NuGet packages if prompted
+3. Build the solution (Ctrl+Shift+B)
+4. Press F5 to run the project
 
 Default Credentials
 
-Teacher
-Username: teacher
-Password: teacher123
+Admin/Teacher
+Username: admin
+Password: admin123
 
 Student
-Username: student
-Password: student123
+Username: student1
+Password: pass123
+(students 1-100 are available, all use pass123)
 
 Data Storage
-The system uses a JSON file (data.json) for data persistence.
-All quizzes, users, and results are stored inside the JSON file.
+- The system uses a JSON file (data.json) for data persistence
+- data.json is auto-created on first run in the same folder as the executable
+- No database installation is required
+- To reset all data: delete data.json and restart the application
