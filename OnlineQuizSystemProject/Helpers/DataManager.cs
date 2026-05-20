@@ -19,6 +19,11 @@ namespace OnlineQuizSystemProject.Helpers
         private static AppData? _cache;
 
         // ─── Load ─────────────────────────────────────────────────────────────────
+        /// <summary>
+        /// Loads app data from data.json file. Returns cached version
+        /// if already loaded. Creates and seeds default data if file
+        /// does not exist.
+        /// </summary>
         public static AppData Load()
         {
             if (_cache != null) return _cache;
@@ -38,6 +43,10 @@ namespace OnlineQuizSystemProject.Helpers
         }
 
         // ─── Save ─────────────────────────────────────────────────────────────────
+        /// <summary>
+        /// Serializes current app data to data.json file.
+        /// Does nothing if data has not been loaded yet.
+        /// </summary>
         public static void Save()
         {
             if (_cache == null) return;
@@ -50,6 +59,10 @@ namespace OnlineQuizSystemProject.Helpers
         public static List<Quiz> GetQuizzes() => Load().Quizzes;
         public static List<QuizResult> GetResults() => Load().Results;
 
+        /// <summary>
+        /// Checks username and password against stored users.
+        /// Returns matched User object or null if not found.
+        /// </summary>
         public static OnlineQuizSystemProject.Models.User? Authenticate(string username, string password)
         {
             var users = Load().Users;
@@ -66,18 +79,28 @@ namespace OnlineQuizSystemProject.Helpers
                 u.Password == password);
         }
 
+        /// <summary>
+        /// Adds a new quiz to the list and saves to file.
+        /// </summary>
         public static void AddQuiz(Quiz quiz)
         {
             Load().Quizzes.Add(quiz);
             Save();
         }
 
+        /// <summary>
+        /// Adds a new quiz result to the list and saves to file.
+        /// </summary>
         public static void AddResult(QuizResult result)
         {
             Load().Results.Add(result);
             Save();
         }
 
+        /// <summary>
+        /// Returns all quiz results belonging to a specific student
+        /// matched by username (case-insensitive).
+        /// </summary>
         public static List<QuizResult> GetResultsForStudent(string username)
         {
             return Load().Results.FindAll(r =>
@@ -85,6 +108,10 @@ namespace OnlineQuizSystemProject.Helpers
         }
 
         // ─── Seed default data ────────────────────────────────────────────────────
+        /// <summary>
+        /// Seeds default admin user, 100 student accounts,
+        /// and one sample quiz when app runs for the first time.
+        /// </summary>
         private static void Seed(AppData data)
         {
             // Default users

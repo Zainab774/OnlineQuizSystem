@@ -8,6 +8,12 @@ using System.Windows.Forms;
 
 namespace OnlineQuizSystemProject;
 
+/// <summary>
+/// Login form. Authenticates the user via DataManager
+/// and routes them to TeacherDashboard or StudentDashboard
+/// based on their role.
+/// </summary>
+
 public partial class LoginForm : Form
 {
     public LoginForm()
@@ -15,6 +21,10 @@ public partial class LoginForm : Form
         InitializeComponent();
     }
 
+    // <summary>
+    /// Validates username and password inputs, calls DataManager.Authenticate,
+    /// then opens the appropriate dashboard based on user role.
+    /// </summary>
     private void btnLogin_Click(object sender, EventArgs e)
     {
 
@@ -52,6 +62,10 @@ public partial class LoginForm : Form
             studentDash.Show();
         }
     }
+
+    /// <summary>
+    /// Clears username and password fields and returns focus to username box.
+    /// </summary>
     private void ResetForm()
     {
         txtUsername.Clear();

@@ -11,6 +11,11 @@ using System.Windows.Forms;
 
 namespace OnlineQuizSystemProject.Forms
 {
+    /// <summary>
+    /// Form that displays quiz questions one by one to the student.
+    /// Tracks selected answers, handles navigation between questions,
+    /// and calculates and saves the final score on submission.
+    /// </summary>
     public partial class QuizForm : Form
     {
         private readonly User _student;
@@ -18,6 +23,10 @@ namespace OnlineQuizSystemProject.Forms
         private int _currentIndex = 0;
         private readonly int[] _answers;   // -1 = not answered
 
+        /// <summary>
+        /// Initializes the quiz form for a specific student and quiz.
+        /// Sets up answer tracking array and loads the first question.
+        /// </summary>
         public QuizForm(User student, Quiz quiz)
         {
             _student = student;
@@ -28,6 +37,11 @@ namespace OnlineQuizSystemProject.Forms
             InitializeComponent();
             LoadQuestion();
         }
+
+        /// <summary>
+        /// Loads the current question onto the form including question text,
+        /// radio button options, progress bar, and navigation button visibility.
+        /// </summary>
         private void LoadQuestion()
         {
             var q = _quiz.Questions[_currentIndex];
@@ -60,7 +74,7 @@ namespace OnlineQuizSystemProject.Forms
                     Cursor = Cursors.Hand,
                     Tag = idx
                 };
-                // Restore previous selection
+                // Restore student's previously selected answer if they navigate back
                 if (_answers[_currentIndex] == idx) radio.Checked = true;
 
                 radio.CheckedChanged += (s, e) =>
@@ -71,12 +85,16 @@ namespace OnlineQuizSystemProject.Forms
                 this.Controls.Add(radio);
             }
 
-            // Navigation
+            // Show Previous only if not on first question, show Submit only on last question
             btnPrevious.Enabled = _currentIndex > 0;
             bool isLast = _currentIndex == total - 1;
             btnNext.Visible = !isLast;
             btnSubmit.Visible = isLast;
         }
+
+        /// <summary>
+        /// Moves to the next question if not already on the last one.
+        /// </summary>
         private void btnNext_Click(object sender, EventArgs e)
         {
 
@@ -86,6 +104,10 @@ namespace OnlineQuizSystemProject.Forms
                 LoadQuestion();
             }
         }
+
+        /// <summary>
+        /// Moves back to the previous question if not on the first one.
+        /// </summary>
         private void btnPrevious_Click(object sender, EventArgs e)
         {
             if (_currentIndex > 0)
@@ -94,9 +116,14 @@ namespace OnlineQuizSystemProject.Forms
                 LoadQuestion();
             }
         }
+
+        /// <summary>
+        /// Warns if any questions are unanswered, then calculates
+        /// the score, saves the result via DataManager, and closes the form.
+        /// </summary>
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            // Check unanswered
+            // Count how many questions the student skipped
             int unanswered = 0;
             for (int i = 0; i < _answers.Length; i++)
                 if (_answers[i] == -1) unanswered++;
@@ -110,12 +137,13 @@ namespace OnlineQuizSystemProject.Forms
                 if (res == DialogResult.No) return;
             }
 
-            // Calculate score
+            // Compare each answer against correct option index to calculate score
             int obtained = 0;
             for (int i = 0; i < _quiz.Questions.Count; i++)
                 if (_answers[i] == _quiz.Questions[i].CorrectOptionIndex) obtained++;
 
             int total = _quiz.Questions.Count;
+                // Guard against divide-by-zero if quiz somehow has no questions
             double pct = total > 0 ? Math.Round((obtained / (double)total) * 100, 2) : 0;
 
             var result = new QuizResult

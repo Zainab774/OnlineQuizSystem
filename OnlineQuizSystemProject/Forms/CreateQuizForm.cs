@@ -10,16 +10,31 @@ using System.Windows.Forms;
 
 namespace OnlineQuizSystemProject.Forms
 {
+    /// <summary>
+    /// Form that allows the admin/teacher to create a new quiz
+    /// by entering a title and adding multiple choice questions
+    /// one by one before saving to DataManager.
+    /// </summary>
     public partial class CreateQuizForm : Form
     {
         private readonly User _admin;
         private readonly List<Question> _questions = new List<Question>();
+
+        /// <summary>
+        /// Initializes the form with the logged-in admin user
+        /// and loads the current question list.
+        /// </summary>
         public CreateQuizForm(User admin)
         {
             _admin = admin;
             InitializeComponent();
             RefreshQuestionList();
         }
+
+        /// <summary>
+        /// Clears and reloads the question listbox with all
+        /// currently added questions and updates the question count label.
+        /// </summary>
         private void RefreshQuestionList()
         {
             lstQuestions.Items.Clear();
@@ -28,6 +43,11 @@ namespace OnlineQuizSystemProject.Forms
 
             lblQCount.Text = $"Questions added: {_questions.Count}";
         }
+
+        /// <summary>
+        /// Validates quiz title and question count, then creates
+        /// a new Quiz object and saves it via DataManager.
+        /// </summary>
         private void btnSaveQuiz_Click(object sender, EventArgs e)
         {
 
@@ -62,6 +82,11 @@ namespace OnlineQuizSystemProject.Forms
 
             this.Close();
         }
+
+        /// <summary>
+        /// Validates all question fields and correct answer selection,
+        /// then adds the new Question to the list and refreshes the display.
+        /// </summary>
         private void btnAddQuestion_Click(object sender, EventArgs e)
         {
             string qText = txtQuestion.Text.Trim();
@@ -78,7 +103,7 @@ namespace OnlineQuizSystemProject.Forms
                     "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
+            // Get the correct answer index from dropdown (0=A, 1=B, 2=C, 3=D)
             int correctIdx = cmbCorrect.SelectedIndex;
             if (correctIdx < 0)
             {
@@ -94,7 +119,7 @@ namespace OnlineQuizSystemProject.Forms
                 CorrectOptionIndex = correctIdx
             });
 
-            // Clear inputs
+            // Clear all input fields after adding so user can enter next question
             txtQuestion.Clear(); txtOpt1.Clear(); txtOpt2.Clear();
             txtOpt3.Clear(); txtOpt4.Clear(); cmbCorrect.SelectedIndex = -1;
             txtQuestion.Focus();

@@ -11,10 +11,20 @@ using System.Windows.Forms;
 
 namespace OnlineQuizSystemProject.Forms
 {
+    /// <summary>
+    /// Displays quiz results in a ListView.
+    /// Admin sees all student results with summary statistics.
+    /// Student sees only their own results with personal summary.
+    /// </summary>
     public partial class ResultForm : Form
     {
         private readonly OnlineQuizSystemProject.Models.User _user;
         private readonly bool _isAdmin;
+
+        /// <summary>
+        /// Initializes the result form for either admin or student view.
+        /// Loads and displays results immediately on construction.
+        /// </summary>
         public ResultForm(OnlineQuizSystemProject.Models.User user, bool isAdmin)
         {
             _user = user;
@@ -26,6 +36,12 @@ namespace OnlineQuizSystemProject.Forms
         {
 
         }
+
+        /// <summary>
+        /// Builds ListView columns based on user role, fetches results
+        /// from DataManager, and populates rows with color coding
+        /// based on percentage scored.
+        /// </summary>
         private void LoadResults()
         {
             listView.Items.Clear();
@@ -48,7 +64,7 @@ namespace OnlineQuizSystemProject.Forms
                 listView.Columns.Add("Percentage", 100);
                 listView.Columns.Add("Date", 200);
             }
-
+            // Admin gets all results, student gets only their own
             List<QuizResult> results = _isAdmin
                 ? DataManager.GetResults()
                 : DataManager.GetResultsForStudent(_user?.Username ?? "");
@@ -69,7 +85,7 @@ namespace OnlineQuizSystemProject.Forms
                 item.SubItems.Add(r.ObtainedMarks.ToString());
                 item.SubItems.Add($"{r.Percentage:0.##}%");
                 item.SubItems.Add(r.SubmittedAt.ToString("dd MMM yyyy HH:mm"));
-
+                // Green = 75% and above, Yellow = 50-74%, Red = below 50%
                 item.ForeColor = r.Percentage >= 75 ? Color.FromArgb(52, 211, 153)
                                : r.Percentage >= 50 ? Color.FromArgb(251, 191, 36)
                                : Color.FromArgb(248, 113, 113);
@@ -78,7 +94,7 @@ namespace OnlineQuizSystemProject.Forms
                 totalObtained += r.ObtainedMarks;
                 totalMarks += r.TotalMarks;
             }
-
+            // Calculate overall percentage across all attempted quizzes
             double overallPct = totalMarks > 0
                 ? Math.Round((totalObtained / (double)totalMarks) * 100, 2) : 0;
 
@@ -86,6 +102,9 @@ namespace OnlineQuizSystemProject.Forms
                 ? $"Total Attempts: {results.Count}  |  Overall Avg: {overallPct:0.##}%"
                 : $"Total Marks: {totalMarks}  |  Obtained: {totalObtained}  |  Overall: {overallPct:0.##}%";
         }
+        /// <summary>
+        /// Closes the result form and returns to the dashboard.
+        /// </summary>
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
