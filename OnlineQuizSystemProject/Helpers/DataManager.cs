@@ -132,7 +132,8 @@ namespace OnlineQuizSystemProject.Helpers
                     Role = "student",
                     FullName = "Student " + i
                 });
-            };
+            }
+            ;
             // Sample quiz
             data.Quizzes.Add(new Quiz
             {
@@ -169,5 +170,28 @@ namespace OnlineQuizSystemProject.Helpers
                 }
             });
         }
+             /// <summary>
+            /// Removes a quiz by its ID from the list and saves to file.
+           /// </summary>
+          public static void DeleteQuiz(string quizId)
+         {
+            var data = Load();
+            data.Quizzes.RemoveAll(q => q.QuizId == quizId);
+            Save();
+         }
+
+           /// <summary>
+          /// Finds a quiz by ID and updates its title then saves to file.
+         /// </summary>
+          public static void UpdateQuizTitle(string quizId, string newTitle)
+         {
+            var quiz = Load().Quizzes.Find(q => q.QuizId == quizId);
+            if (quiz != null)
+            {
+                quiz.Title = newTitle;
+                Save();
+            }
+         }
+       }
     }
-}
+

@@ -26,12 +26,25 @@ namespace OnlineQuizSystemProject.Forms
         private void Build()
         {
             this.Text = "Select a Quiz";
-            this.Size = new Size(450, 380);
+            this.Size = new Size(450, 420);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.BackColor = Color.FromArgb(15, 23, 42);
+
+            // Search box for filtering quizzes by title in real time
+            var txtSearch = new TextBox
+            {
+                PlaceholderText = "Search quizzes...",
+                Size = new Size(400, 32),
+                Location = new Point(20, 58),
+                Font = new Font("Segoe UI", 10F),
+                BackColor = Color.FromArgb(30, 41, 59),
+                ForeColor = Color.White,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
 
             var lbl = new Label
             {
@@ -46,7 +59,7 @@ namespace OnlineQuizSystemProject.Forms
             lstQuizzes = new ListBox
             {
                 Size = new Size(400, 200),
-                Location = new Point(20, 55),
+                Location = new Point(20, 100),
                 BackColor = Color.FromArgb(30, 41, 59),
                 ForeColor = Color.White,
                 Font = new Font("Segoe UI", 11F),
@@ -58,6 +71,24 @@ namespace OnlineQuizSystemProject.Forms
                 lstQuizzes.Items.Add($"  📋  {q.Title}  ({q.Questions.Count} questions)");
 
             if (lstQuizzes.Items.Count > 0) lstQuizzes.SelectedIndex = 0;
+
+
+            // Filter quiz list in real time as student types
+            txtSearch.TextChanged += (s, e) =>
+            {
+                string query = txtSearch.Text.Trim().ToLower();
+                lstQuizzes.Items.Clear();
+
+                var filtered = string.IsNullOrEmpty(query)
+                    ? _quizzes
+                    : _quizzes.FindAll(q =>
+                        q.Title!.ToLower().Contains(query));
+
+                foreach (var q in filtered)
+                    lstQuizzes.Items.Add($"  📋  {q.Title}  ({q.Questions.Count} questions)");
+
+                if (lstQuizzes.Items.Count > 0) lstQuizzes.SelectedIndex = 0;
+            };
 
             btnSelect = new Button
             {
@@ -74,6 +105,14 @@ namespace OnlineQuizSystemProject.Forms
             btnSelect.Click += (s, e) =>
             {
                 if (lstQuizzes.SelectedIndex < 0) return;
+
+                // Match selected item back to correct quiz from filtered list
+                string query = txtSearch.Text.Trim().ToLower();
+                var filtered = string.IsNullOrEmpty(query)
+                    ? _quizzes
+                    : _quizzes.FindAll(q =>
+                        q.Title!.ToLower().Contains(query));
+
                 SelectedQuiz = _quizzes[lstQuizzes.SelectedIndex];
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -93,7 +132,7 @@ namespace OnlineQuizSystemProject.Forms
             btnCancel.FlatAppearance.BorderSize = 0;
             btnCancel.Click += (s, e) => { this.DialogResult = DialogResult.Cancel; this.Close(); };
 
-            this.Controls.AddRange(new Control[] { lbl, lstQuizzes, btnSelect, btnCancel });
+            this.Controls.AddRange(new Control[] { lbl, txtSearch, lstQuizzes, btnSelect, btnCancel });
         }
     }
 }

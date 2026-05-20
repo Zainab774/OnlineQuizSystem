@@ -33,6 +33,7 @@
             btnLogOut = new Button();
             btnCreateQuiz = new Button();
             lblTitle = new Label();
+            btnManageQuizzes = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -40,12 +41,13 @@
             // 
             panel1.BackColor = Color.Transparent;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(btnManageQuizzes);
             panel1.Controls.Add(btnViewResult);
             panel1.Controls.Add(btnLogOut);
             panel1.Controls.Add(btnCreateQuiz);
-            panel1.Location = new Point(226, 105);
+            panel1.Location = new Point(226, 81);
             panel1.Name = "panel1";
-            panel1.Size = new Size(300, 228);
+            panel1.Size = new Size(300, 252);
             panel1.TabIndex = 0;
             // 
             // btnViewResult
@@ -53,7 +55,7 @@
             btnViewResult.BackColor = Color.FromArgb(99, 102, 241);
             btnViewResult.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnViewResult.ForeColor = Color.White;
-            btnViewResult.Location = new Point(67, 101);
+            btnViewResult.Location = new Point(67, 82);
             btnViewResult.Name = "btnViewResult";
             btnViewResult.Size = new Size(159, 41);
             btnViewResult.TabIndex = 1;
@@ -66,7 +68,7 @@
             btnLogOut.BackColor = Color.FromArgb(239, 68, 68);
             btnLogOut.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogOut.ForeColor = Color.White;
-            btnLogOut.Location = new Point(78, 173);
+            btnLogOut.Location = new Point(79, 190);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Size = new Size(135, 39);
             btnLogOut.TabIndex = 1;
@@ -97,11 +99,24 @@
             lblTitle.TabIndex = 2;
             lblTitle.Text = "Welcome Teacher!";
             // 
+            // btnManageQuizzes
+            // 
+            btnManageQuizzes.BackColor = Color.FromArgb(128, 128, 255);
+            btnManageQuizzes.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnManageQuizzes.ForeColor = Color.White;
+            btnManageQuizzes.Location = new Point(65, 140);
+            btnManageQuizzes.Name = "btnManageQuizzes";
+            btnManageQuizzes.Size = new Size(161, 34);
+            btnManageQuizzes.TabIndex = 2;
+            btnManageQuizzes.Text = "Manage Quizzes";
+            btnManageQuizzes.UseVisualStyleBackColor = false;
+            btnManageQuizzes.Click += btnManageQuizzes_Click;
+            // 
             // TeacherDashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = OnlineQuizSystemProject.Properties.Resources.download__8_;
+            BackgroundImage = Properties.Resources.download__8_;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
             Controls.Add(lblTitle);
@@ -120,5 +135,6 @@
         private Button btnLogOut;
         private Button btnCreateQuiz;
         private Label lblTitle;
+        private Button btnManageQuizzes;
     }
 }

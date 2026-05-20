@@ -58,5 +58,15 @@ namespace OnlineQuizSystemProject.Forms
         {
             this.Close();
         }
+
+        /// <summary>
+        /// Opens the ManageQuizzesForm so teacher can
+        /// view, rename and delete existing quizzes.
+        /// </summary>
+        private void btnManageQuizzes_Click(object sender, EventArgs e)
+        {
+            var manageForm = new ManageQuizzesForm();
+            manageForm.ShowDialog();
+        }
     }
 }
