@@ -192,6 +192,44 @@ namespace OnlineQuizSystemProject.Helpers
                 Save();
             }
          }
-       }
+        /// <summary>
+        /// Adds a new user to the list and saves to file.
+        /// </summary>
+        public static void AddUser(OnlineQuizSystemProject.Models.User user)
+        {
+            Load().Users.Add(user);
+            Save();
+        }
+
+        /// <summary>
+        /// Deletes a user by username and saves to file.
+        /// Admin account cannot be deleted.
+        /// </summary>
+        public static bool DeleteUser(string username)
+        {
+            if (string.Equals(username, "admin", StringComparison.OrdinalIgnoreCase))
+                return false; // protect admin
+            var data = Load();
+            int removed = data.Users.RemoveAll(u =>
+                string.Equals(u.Username, username, StringComparison.OrdinalIgnoreCase));
+            if (removed > 0) Save();
+            return removed > 0;
+        }
+
+        /// <summary>
+        /// Updates the FullName and Password of an existing user by username.
+        /// </summary>
+        public static void UpdateUser(string username, string newFullName, string newPassword)
+        {
+            var user = Load().Users.Find(u =>
+                string.Equals(u.Username, username, StringComparison.OrdinalIgnoreCase));
+            if (user != null)
+            {
+                user.FullName = newFullName;
+                user.Password = newPassword;
+                Save();
+            }
+        }
+     }
     }
 

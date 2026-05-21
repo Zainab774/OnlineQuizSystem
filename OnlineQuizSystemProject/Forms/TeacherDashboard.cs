@@ -68,5 +68,15 @@ namespace OnlineQuizSystemProject.Forms
             var manageForm = new ManageQuizzesForm();
             manageForm.ShowDialog();
         }
+
+        /// <summary>
+        /// Opens the ManageUsersForm so the admin can add,
+        /// edit, and delete student user accounts.
+        /// </summary>
+        private void btnManageUsers_Click(object sender, EventArgs e)
+        {
+            var manageUsers = new ManageUsersForm();
+            manageUsers.ShowDialog();
+        }
     }
 }
